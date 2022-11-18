@@ -1,0 +1,61 @@
+<section class="details">
+    <div class="details__header" style="background-image: url('https://image.tmdb.org/t/p/original{{selectedItem.backdrop_path}}')">
+        <div class="header__gradient"></div>
+        <div class="header-box">
+            <p class="subheader">Movie Listing Web App / TV Shows</p>
+            <h3 class="header__title">{{selectedItem.name}}</h3>
+        </div>
+    </div>
+    <div class="body">
+        <img class="poster" src="https://image.tmdb.org/t/p/original{{selectedItem.poster_path}}" alt="Poster">
+        <div class="description">
+            <h4 class="description__title">{{selectedItem.tagline}}</h4>
+            <p class="description__descr">{{selectedItem.overview}}</p>
+            <div class="card__rating" style="position: relative; top: 0; left: 0;">
+                <span class="rating">
+                    <img src="../../../assets/images/icons/star.svg" alt="Star" class="rating__icon">
+                    <p class="rating__score">{{selectedItem.vote_average}}</p>
+                </span>
+            </div>
+            <div class="wrapper">
+                <div class="description__block">
+                    <p class="description__block-header">Type</p>
+                    <p class="description__block-value">TV Show</p>
+                </div>
+                <div class="description__block">
+                    <p class="description__block-header">Status</p>
+                    <p class="description__block-value">{{selectedItem.status}}</p>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="description__block">
+                    <p class="description__block-header">First air date</p>
+                    <p class="description__block-value">{{selectedItem.first_air_date}}</p>
+                </div>
+                <div class="description__block">
+                    <p class="description__block-header">Last air date</p>
+                    <p class="description__block-value">{{selectedItem.last_air_date}}</p>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="description__block">
+                    <p class="description__block-header">No. of Seasons</p>
+                    <p class="description__block-value">{{selectedItem.number_of_seasons}}</p>
+                </div>
+                <div class="description__block">
+                    <p class="description__block-header">No. of episodes</p>
+                    <p class="description__block-value">{{selectedItem.number_of_episodes}}</p>
+                </div>
+            </div>
+            <div class="description__block">
+                <p class="description__block-header">Episode run time</p>
+                <p class="description__block-value">{{selectedItem.episode_run_time[0] || '-'}} min</p>
+            </div>
+            <div class="description__block">
+                <p class="description__block-header">Genres</p>
+                <p class="description__block-value">{{selectedItem.genres | stringifyGenres}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+

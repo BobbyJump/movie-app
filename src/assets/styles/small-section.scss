@@ -1,0 +1,16 @@
+.small-section {
+    padding: 40px 0;
+    min-height: calc(100vh - 80px);
+    text-align: center;
+    &__title {
+        margin-top: 40px;
+    }
+    &__subtitle {
+        width: 588px;
+        margin: 16px auto 24px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #8E95A9;
+    }
+}

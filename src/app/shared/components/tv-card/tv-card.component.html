@@ -1,0 +1,20 @@
+<li class="card">
+    <img class="background" src="https://image.tmdb.org/t/p/original{{tv.poster_path}}" alt="{{tv.name}} Poster">
+    <div class="card__body">
+        <div class="card__header">
+            <img src="https://image.tmdb.org/t/p/original{{tv.poster_path}}" alt="" class="card__image">
+            <div class="card__rating">
+                <span class="rating">
+                    <img src="../../../assets/images/icons/star.svg" alt="Star" class="rating__icon">
+                    <p class="rating__score">{{tv.vote_average}}</p>
+                </span>
+            </div>
+        </div>
+        <a [routerLink]="['/tv-shows', tv.id]" class="card__title">{{tv.name}}</a>
+        <button class="suggest" *ngIf="suggest" (click)="onClick()">
+            <img src="../../../../assets/images/icons/like.svg" alt="Like" class="suggest__icon">
+            Suggest this
+        </button>
+    </div>
+</li>
+

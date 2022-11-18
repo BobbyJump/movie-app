@@ -1,0 +1,21 @@
+<section class="movies">
+    <div class="container">
+        <h1>Пошук Фільмів</h1>
+        <input
+            type="text"
+            class="search-input"
+            placeholder="Пошук фільмів..."
+            [(ngModel)]="filterString"
+            (change)="getFilteredData()"
+        >
+        <div class="movies">
+            <h3 class="movies__header"><span>Знайдено {{movies.length}} фільмів</span></h3>
+            <ul class="movies__list">
+                <app-movie-card 
+                    *ngFor="let movie of movies" 
+                    [movie]="movie"
+                ></app-movie-card>
+            </ul>
+        </div>
+    </div>
+</section>

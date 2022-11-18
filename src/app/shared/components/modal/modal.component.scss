@@ -1,0 +1,16 @@
+@import '../../../../assets/styles/modal.scss';
+
+.body__title {
+    margin: 24px 0;
+    color: #EBEEF5;
+}
+
+.body__subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #767E94;
+    span {
+        color: red;
+    }
+}

@@ -1,0 +1,28 @@
+<header class="header">
+    <div class="container">
+        <div class="navigation">
+            <div class="navigation__logo">
+                <a [routerLink]='["/home"]'>
+                    <img src="../../../../assets/images/logo.svg" alt="Logo" class="logo">
+                </a>
+            </div>
+            <div class="navigation__links">
+                <a *ngIf="authService.isLoggedIn" [routerLink]='["/movies"]' class="navigation__links-item">Фільми</a>
+                <a *ngIf="authService.isLoggedIn" [routerLink]='["/tv-shows"]' class="navigation__links-item">Серіали</a>
+                <a *ngIf="authService.isLoggedIn" [routerLink]='["/suggest"]' class="navigation__links-item arrow-link">Улюблене</a>
+                <a *ngIf="!authService.isLoggedIn" [routerLink]='["/login"]' class="navigation__links-item arrow-link">
+                    Вхід
+                    <img src="../../../../assets/images/icons/arrow-right.svg" alt="Arrow Right">
+                </a>
+                <a 
+                    *ngIf="authService.isLoggedIn" 
+                    [routerLink]='["/login"]' 
+                    class="navigation__links-item arrow-link"
+                    (click)="authService.SignOut()"
+                >Вихід
+                    <img src="../../../../assets/images/icons/arrow-right.svg" alt="Arrow Right">
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

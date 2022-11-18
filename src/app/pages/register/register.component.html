@@ -1,0 +1,50 @@
+<section class="login">
+    <div class="container">
+        <div class="wrapper">
+          <div class="image">
+            <img src="../../../assets/images/register-man.png" alt="Login">
+          </div>
+          <div class="auth-form">
+              <div class="displayTableCell">
+                <div class="authBlock">
+                  <h3>Зареєструйте новий акаунт</h3>
+                    <div class="input-group">
+                      <input
+                        type="email"
+                        style="background-image: url('../../../assets/images/icons/mail-icon.svg');"
+                        class="form-input search-input"
+                        placeholder="Введіть вашу пошту"
+                        #userEmail
+                        required
+                      >
+                      <input
+                        type="password"
+                        style="background-image: url('../../../assets/images/icons/pass-icon.svg');"
+                        class="search-input form-input"
+                        placeholder="Введіть ваш пароль"
+                        #userPassword
+                        required
+                      >
+                    </div>
+                  <div class="formGroup">
+                    <button 
+                        class="form-btn fill-button"
+                        (click)="authService.SignUp(userEmail.value, userPassword.value)"
+                    >Зареєструватись</button>
+                  </div>
+                  <span class="or">Або</span>
+                  <div class="formGroup">
+                    <button 
+                        class="form-btn fill-button"
+                        (click)="authService.GoogleAuth()"
+                    >Зареєструватись з Google акаунту</button>
+                  </div>
+                </div>
+                <div class="additional">
+                  <span>Вже маєте акаунт?<span class="redirect" routerLink="/login"> Увійти у свій акаунт.</span></span>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</section>

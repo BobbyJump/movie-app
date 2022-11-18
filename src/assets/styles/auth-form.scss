@@ -1,0 +1,58 @@
+.wrapper{
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+}
+
+.image {
+    position: relative;
+    width: 384px;
+    height: 540px;
+    background-color: #121829;
+    border-radius: 36px;
+    img {
+        position: absolute;
+        right: -80px;
+        bottom: 1px;
+        width: auto;
+        height: 100%;
+    }
+}
+
+.form-input {
+    background-color: #121829;
+    width: 100%;
+    margin: 0;
+}
+
+.auth-form {
+    max-width: 600px;
+    height: 100%;
+}
+
+.input-group {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.form-btn {
+    width: 100%;
+}
+.or {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    color: #C3C8D4;
+}
+
+.additional {
+    margin-top: 50px;
+    color: #C3C8D4;
+    .forgotPassword,
+    .redirect {
+        color: #9C92F8;
+        cursor: pointer;
+    }
+}

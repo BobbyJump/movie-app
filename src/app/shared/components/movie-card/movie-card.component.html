@@ -1,0 +1,19 @@
+<li class="card">
+    <img class="background" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="{{movie.title}} Poster">
+    <div class="card__body">
+        <div class="card__header">
+            <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="" class="card__image">
+            <div class="card__rating">
+                <span class="rating">
+                    <img src="../../../assets/images/icons/star.svg" alt="Star" class="rating__icon">
+                    <p class="rating__score">{{movie.vote_average}}</p>
+                </span>
+            </div>
+        </div>
+        <a [routerLink]="['/movies', movie.id]" class="card__title">{{movie.title}}</a>
+        <button class="suggest" *ngIf="suggest" (click)="onClick()">
+            <img src="../../../../assets/images/icons/like.svg" alt="Like" class="suggest__icon">
+            <p class="suggest__text">Suggest this</p>
+        </button>
+    </div>
+</li>

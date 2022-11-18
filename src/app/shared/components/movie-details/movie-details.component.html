@@ -1,0 +1,39 @@
+<section class="details">
+    <div class="details__header" style="background-image: url('https://image.tmdb.org/t/p/original{{selectedItemBackdrop.file_path}}')">
+        <div class="header__gradient"></div>
+        <div class="header-box">
+            <p class="subheader">Movie Listing Web App / Movies</p>
+            <h3 class="header__title">{{selectedItem.title}}</h3>
+        </div>
+    </div>
+    <div class="body">
+        <img class="poster" src="https://image.tmdb.org/t/p/original{{selectedItemPoster.file_path}}" alt="Poster">
+        <div class="description">
+            <h4 class="description__title">{{selectedItem.tagline}}</h4>
+            <p class="description__descr">{{selectedItem.overview}}</p>
+            <div class="card__rating" style="position: relative; top: 0; left: 0;">
+                <span class="rating">
+                    <img src="../../../assets/images/icons/star.svg" alt="Star" class="rating__icon">
+                    <p class="rating__score">{{selectedItem.vote_average}}</p>
+                </span>
+            </div>
+            <div class="description__block">
+                <p class="description__block-header">Type</p>
+                <p class="description__block-value">Movie</p>
+            </div>
+            <div class="description__block">
+                <p class="description__block-header">Release Date:</p>
+                <p class="description__block-value">{{selectedItem.release_date}}</p>
+            </div>
+            <div class="description__block">
+                <p class="description__block-header">Run time</p>
+                <p class="description__block-value">{{selectedItem.runtime}} min</p>
+            </div>
+            <div class="description__block">
+                <p class="description__block-header">Genres</p>
+                <p class="description__block-value">{{selectedItem.genres | stringifyGenres}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+

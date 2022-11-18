@@ -1,0 +1,40 @@
+<section class="home">
+    <div class="container">
+        <h1>Головна сторінка</h1>
+        <p class="description">На цьому порталі ви можете знайти <span>найкращі фільми та серіали</span> з поміж мільйонів кінострічок від провідних режисерів світового рівня. <span>Створіть свою власну неповторну галерею фільмів та серіалів</span>, оцінюйте їх та рекомендуйте своїм друзям 😉</p>
+        <div class="buttons-wrap">
+            <button 
+                class="search-button"
+                [ngClass]="{'active': activeBtn === 'all'}"
+                (click)="showAll()"
+            >Все</button>
+            <button 
+                class="search-button"
+                [ngClass]="{'active': activeBtn === 'movies'}"
+                (click)="showMovies()"
+            >Фільми</button>
+            <button
+                class="search-button"
+                [ngClass]="{'active': activeBtn === 'tv'}"
+                (click)="showTvShows()"
+            >Серіали</button>
+        </div>
+        <div class="movies">
+            <h3 class="movies__header">Підбірка рекомендованих {{ suggest }}.<br/>Можливо, щось сподобається.</h3>
+            <ul class="movies__list">
+                <ng-container *ngIf="activeBtn === 'all' || activeBtn === 'movies'">
+                    <app-movie-card
+                        *ngFor="let movie of movies"
+                        [movie]="movie"
+                    ></app-movie-card>
+                </ng-container>
+                <ng-container *ngIf="activeBtn === 'all' || activeBtn === 'tv'">
+                    <app-tv-card
+                        *ngFor="let tv of tvShows"
+                        [tv]="tv"
+                    ></app-tv-card>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</section>

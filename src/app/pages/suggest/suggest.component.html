@@ -1,0 +1,51 @@
+<section class="suggest">
+    <app-modal
+        (modalEvent)="showModal($event)"
+        [show]="modal"
+    ></app-modal>
+    <app-suggest-form
+        (formCloseEvent)="showForm($event)"
+        (formEvent)="showModal($event)"
+        [showForm]="form"
+    ></app-suggest-form>
+    <div class="container">
+        <h1>Suggest Me</h1>
+        <p class="description">I will really appericiate it if you take time to suggest me something good to watch.</p>
+        <div class="suggest__wrapper">
+            <input
+                type="text"
+                class="search-input"
+                placeholder="Search Movies or TV Shows"
+                [(ngModel)]="filterString"
+            >
+            <button class="fill-button" (click)="getFilteredData()">Search</button>
+        </div>
+        <ul class="movies__list">
+            <ng-container>
+                <app-movie-card
+                    *ngFor="let movie of movies"
+                    [movie]="movie"
+                    [suggest]="true"
+                    (modalEvent)="showModal($event)"
+                ></app-movie-card>
+            </ng-container>
+            <ng-container>
+                <app-tv-card
+                    *ngFor="let tv of tvShows"
+                    [tv]="tv"
+                    [suggest]="true"
+                    (modalEvent)="showModal($event)"
+                ></app-tv-card>
+            </ng-container>
+        </ul>
+        <div class="manual" *ngIf="movies.length > 0 || tvShows.length > 0">
+            <p class="manual__text">Didn’t find the one you looking for?</p>
+            <button class="fill-button" (click)="onClick()">Suggest Manually</button>
+        </div>
+        <div class="manual no-results" *ngIf="manual" (click)="onClick()">
+            <h2 class="manual__header">Sorry, No results found</h2>
+            <p class="manual__text">There are no movies or TV shows matching your search terms. You can suggest me manually</p>
+            <button class="fill-button">Suggest Manually</button>
+        </div>
+    </div>
+</section>

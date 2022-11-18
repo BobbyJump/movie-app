@@ -1,0 +1,27 @@
+<div class="modal" *ngIf="showForm">
+    <div class="body">
+        <div class="wrapper">
+            <button class="close" (click)="onClick()">
+                <img src="../../../../assets/images/icons/close-square.svg" alt="X-mark">
+            </button>
+            <form class="form" (submit)="onSubmit()">
+                <h4 class="form__title">Suggest something to watch</h4>
+                <div class="form__input">
+                    <input
+                        class="search-input" 
+                        style="background: url('../../../../assets/images/icons/movie.svg') no-repeat scroll 16px;"
+                        type="text"
+                        placeholder="Title"
+                    >
+                    <input
+                        class="search-input" 
+                        style="background: url('../../../../assets/images/icons/link.svg') no-repeat scroll 16px;" 
+                        type="text"
+                        placeholder="Link (if available)"
+                    >
+                </div>
+                <button type="submit" class="fill-button form__button">Suggest</button>
+            </form>
+        </div>
+    </div>
+</div>

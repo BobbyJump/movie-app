@@ -1,0 +1,13 @@
+<section class="small-section">
+    <img class="small-section__image" src="../../../assets/images/email-verification.png" alt="Forgot password image">
+    <h2 class="small-section__title">Дякуємо за реєстрацію</h2>
+    <ng-container *ngIf="authService.userData as user">
+        <p class="small-section__subtitle">Ми надіслали листа з підтвердженням на <strong>{{user.email}}</strong></p>
+        <p class="small-section__subtitle">Будь ласка, перевірте свою електронну пошту та перейдіть за посиланням для підтвердження адреси.</p>
+    </ng-container>
+    <p class="small-section__subtitle">Якщо ви не отримали листа, натисніть на кнопку нижче.</p>
+    <button class="fill-button" (click)="authService.SendVerificationMail()">Відправити листа знову</button>
+    <div class="additional">
+        <span>Вже є акаунт?<span class="redirect" routerLink="/login"> Логін.</span></span>
+      </div>
+</section>
