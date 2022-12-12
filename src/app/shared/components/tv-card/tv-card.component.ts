@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { ITvShow } from 'src/app/interfaces/tv-show.interface';
+import { ProfileService } from '../../services/profile.service';
 import { ScrollService } from '../../services/window-scrolling.service';
 
 @Component({
@@ -16,12 +17,15 @@ export class TvCardComponent {
   @Output() modalEvent = new EventEmitter<boolean>();
 
   public emptyPoster = '../../../../assets/images/no-image.png';
+  public addBtn = true;
 
-  constructor(private scrollService: ScrollService) {}
+  constructor(private scrollService: ScrollService, private profileService: ProfileService) {}
 
-  onClick() {
+  onClick(tv: ITvShow) {
+    this.addBtn = false;
     this.modalEvent.emit(true);
     this.scrollService.disable();
+    this.profileService.addTvToProfile(tv);
   }
 
 }

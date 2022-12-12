@@ -1,0 +1,38 @@
+<section class="dashboard">
+  <div class="container">
+    <h1 class="h2">Профіль користувача</h1>
+    <div class="user" *ngIf="authService.userData as user">
+      <div class="user__image">
+        <img src="{{user.photoURL}}" alt="{{user.displayName}}" class="image">
+      </div>
+      <div class="user__info">
+        <h3 class="user__info-username">Привіт, <span>{{(user.displayName) ? user.displayName : 'Юзер'}}</span></h3>
+        <h3 class="user__info-id">Твій ID: <span>{{user.uid}}</span></h3>
+        <h3 class="user__info-email">Твоя пошта: <span>{{user.email}}</span></h3>
+        <h3 class="user__info-verified">Верифікація: <span>{{(user.emailVerified) ? 'Верифіковано' : 'Потрібна верифікація'}}</span></h3>
+      </div>
+    </div>
+    <h2>Ваша галерея:</h2>
+    <h2 [ngStyle]="{'color': 'rgba(123, 110, 246, 1)'}" *ngIf="!profileTvs && !profileMovies">Пусто... Поки що ви не додали фільмів чи сералів.</h2>
+    <div class="movies" *ngIf="profileMovies">
+      <h3 class="movies__header"><span>Список ваших фільмів:</span></h3>
+      <ul class="movies__list">
+        <ng-container>
+            <app-movie-card
+                *ngFor="let movie of profileMovies"
+                [movie]="movie"
+            ></app-movie-card>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="movies" *ngIf="profileTvs">
+      <h3 class="movies__header"><span>Список ваших серіалів:</span></h3>
+      <ul class="movies__list">
+        <app-tv-card
+            *ngFor="let tv of profileTvs"
+            [tv]="tv"
+        ></app-tv-card>
+      </ul>
+    </div>
+  </div>
+</section>

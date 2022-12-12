@@ -1,26 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HomeRoutingModule } from './home-routing.module';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 
-import { HomeComponent } from './home.component';
+import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    HomeRoutingModule,
+    DashboardRoutingModule,
     SharedModule,
-    HttpClientModule,
-    FormsModule,
-    CarouselModule
+    FormsModule
   ]
 })
-export class HomeModule { }
+export class DashboardModule {}

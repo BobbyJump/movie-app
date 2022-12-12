@@ -1,4 +1,8 @@
 <section class="home">
+    <app-modal
+        (modalEvent)="showModal($event)"
+        [show]="modal"
+    ></app-modal>
     <div class="container">
         <h1>Головна сторінка</h1>
         <p class="description">На цьому порталі ви можете знайти <span>найкращі фільми та серіали</span> з поміж мільйонів кінострічок від провідних режисерів світового рівня. <span>Створіть свою власну неповторну галерею фільмів та серіалів</span>, оцінюйте їх та рекомендуйте своїм друзям 😉</p>
@@ -26,12 +30,16 @@
                     <app-movie-card
                         *ngFor="let movie of movies"
                         [movie]="movie"
+                        [suggest]="true"
+                        (modalEvent)="showModal($event)"
                     ></app-movie-card>
                 </ng-container>
                 <ng-container *ngIf="activeBtn === 'all' || activeBtn === 'tv'">
                     <app-tv-card
                         *ngFor="let tv of tvShows"
                         [tv]="tv"
+                        [suggest]="true"
+                        (modalEvent)="showModal($event)"
                     ></app-tv-card>
                 </ng-container>
             </ul>

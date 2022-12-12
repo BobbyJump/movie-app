@@ -7,6 +7,8 @@ import { ITvShowList } from 'src/app/interfaces/tv-show-list.interface';
 import { IMovie } from 'src/app/interfaces/movie.interface';
 import { ITvShow } from 'src/app/interfaces/tv-show.interface';
 
+import { OwlOptions } from 'ngx-owl-carousel-o';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,9 +26,35 @@ export class HomeComponent implements OnInit {
   public numberOfTv: number;
   public totalNumber: number;
   public suggest: string;
+  public modal: boolean;
 
   ngOnInit() {
     this.showAll();
+  }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
   }
 
   showAll() {
@@ -35,6 +63,10 @@ export class HomeComponent implements OnInit {
     this.totalNumber = this.numberOfMovies + this.numberOfTv;
     this.activeBtn = 'all';
     this.suggest = 'фільмів та серіалів'
+  }
+
+  toNumber(id: string): number {
+    return Number(id);
   }
 
   showTvShows() {
@@ -79,6 +111,10 @@ export class HomeComponent implements OnInit {
       });
     }
     this.filterString = '';
+  }
+
+  showModal(state: boolean): void {
+    this.modal = state;
   }
 
 }

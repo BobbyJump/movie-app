@@ -1,4 +1,8 @@
 <section class="movies">
+    <app-modal
+        (modalEvent)="showModal($event)"
+        [show]="modal"
+    ></app-modal>
     <div class="container">
         <h1>Пошук Фільмів</h1>
         <input
@@ -9,11 +13,14 @@
             (change)="getFilteredData()"
         >
         <div class="movies">
-            <h3 class="movies__header"><span>Знайдено {{movies.length}} фільмів</span></h3>
-            <ul class="movies__list">
+            <h3 class="movies__header"><span>{{header}}</span></h3>
+            <app-loader *ngIf="loading"></app-loader>
+            <ul class="movies__list" *ngIf="!loading">
                 <app-movie-card 
                     *ngFor="let movie of movies" 
                     [movie]="movie"
+                    [suggest]="true"
+                    (modalEvent)="showModal($event)"
                 ></app-movie-card>
             </ul>
         </div>

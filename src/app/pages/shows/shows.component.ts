@@ -15,21 +15,34 @@ export class ShowsComponent implements OnInit {
 
   public tvShows: ITvShow[];
   public filterString = '';
+  public header: string;
+  public loading = false;
+  public modal: boolean;
 
   ngOnInit(): void {
     this.getShows();
   }
 
   getShows() {
+    this.loading = true;
     this.tvService.getAllTvShows().subscribe((tv: ITvShowList) => {
       this.tvShows = tv.results;
+      this.loading = false;
+      this.header = 'Список популярних серіалів:'
     });
   }
 
   getFilteredShows() {
+    this.loading = true;
     this.tvService.getFilteredTvShows(this.filterString).subscribe((tv: ITvShowList) => {
       this.tvShows = tv.results;
+      this.loading = false;
+      this.header = `Знайдено ${this.tvShows.length} серіалів:`;
     });
+  }
+
+  public showModal(state: boolean): void {
+    this.modal = state;
   }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 import { IMovieList } from 'src/app/interfaces/movie-list.interface';
 import { IMovieDetails } from 'src/app/interfaces/movie-details.interface';
 import { IImages } from 'src/app/interfaces/images.interface';

@@ -1,17 +1,27 @@
 <section class="shows">
+    <app-modal
+        (modalEvent)="showModal($event)"
+        [show]="modal"
+    ></app-modal>
     <div class="container">
         <h1>Пошук Серіалів</h1>
         <input
             type="text"
             class="search-input"
-            placeholder="Search Movies or TV Shows"
+            placeholder="Пошук серіалів..."
             [(ngModel)]="filterString"
             (change)="getFilteredShows()"
         >
         <div class="movies">
-            <h3 class="movies__header"><span>Знайдено {{tvShows.length}} серіалів</span></h3>
-            <ul class="movies__list">
-                <app-tv-card *ngFor="let tv of tvShows" [tv]="tv"></app-tv-card>
+            <h3 class="movies__header"><span>{{header}}</span></h3>
+            <app-loader *ngIf="loading"></app-loader>
+            <ul class="movies__list" *ngIf="!loading">
+                <app-tv-card 
+                    *ngFor="let tv of tvShows" 
+                    [tv]="tv"
+                    [suggest]="true"
+                    (modalEvent)="showModal($event)"
+                ></app-tv-card>
             </ul>
         </div>
     </div>

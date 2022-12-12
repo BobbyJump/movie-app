@@ -11,10 +11,17 @@
             </div>
         </div>
         <a [routerLink]="['/tv-shows', tv.id]" class="card__title">{{tv.name}}</a>
-        <button class="suggest" *ngIf="suggest" (click)="onClick()">
-            <img src="../../../../assets/images/icons/like.svg" alt="Like" class="suggest__icon">
-            Suggest this
-        </button>
+        <ng-container *ngIf="addBtn">
+            <div class="suggest click" *ngIf="suggest" (click)="onClick(tv)">
+                <img src="../../../../assets/images/icons/like.svg" alt="Like" class="suggest__icon">
+                Додати до профілю
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!addBtn">
+            <div class="suggest" *ngIf="suggest">
+                Додано до профілю
+            </div>
+        </ng-container>
     </div>
 </li>
 
