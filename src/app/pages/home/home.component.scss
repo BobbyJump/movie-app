@@ -1,5 +1,7 @@
 .buttons-wrap {
     max-width: fit-content;
+    flex-wrap: wrap;
+    justify-content: space-around;
     margin: 32px 0;
     padding: 8px;
     display: flex;
@@ -20,5 +22,64 @@
         color: rgba(235, 233, 254, 1);
         background-color: rgba(123, 110, 246, 1);
         border-radius: 8px;
+    }
+}
+.genres-wrap {
+    margin: 50px 0;
+    .genres-header {
+        display: inline;
+        cursor: pointer;
+        span {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: rgba(118, 126, 148, 1);
+            font-style: italic;
+        }
+    }
+}
+.pagination {
+    width: fit-content;
+    margin: 50px auto;
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+    .pag-wrap {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        .dots {
+            color: #ffffff;
+        }
+    }
+    button {
+        cursor: pointer;
+        color: #ffffff;
+        border: none;
+        background-color: transparent;
+        &:disabled {
+            color: rgba(118, 126, 148, 1);
+            cursor: not-allowed;
+        }
+    }
+    .item {
+        background-color: rgba(118, 126, 148, 1);
+        border-radius: 8px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .active {
+        background-color: rgba(123, 110, 246, 1);
+    }
+}
+
+@media (max-width: 600px) {
+    .pagination,
+    .pag-wrap {
+        flex-direction: column;
+        row-gap: 20px;
     }
 }

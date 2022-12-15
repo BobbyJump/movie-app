@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
 
 import { HomeComponent } from './home.component';
 
@@ -20,7 +20,7 @@ import { HomeComponent } from './home.component';
     SharedModule,
     HttpClientModule,
     FormsModule,
-    CarouselModule
+    CdkAccordionModule
   ]
 })
 export class HomeModule { }

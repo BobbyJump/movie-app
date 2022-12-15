@@ -11,6 +11,7 @@ import { StringifyGenresPipe } from './pipes/stringify-genres.pipe';
 import { ModalComponent } from './components/modal/modal.component';
 import { SuggestFormComponent } from './components/suggest-form/suggest-form.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     ModalComponent,
     SuggestFormComponent,
     LoaderComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     ModalComponent,
     SuggestFormComponent,
     StringifyGenresPipe,
-    LoaderComponent
+    LoaderComponent,
+    FooterComponent,
   ]
 })
 export class SharedModule { }

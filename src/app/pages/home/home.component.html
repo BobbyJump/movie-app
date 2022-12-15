@@ -9,11 +9,6 @@
         <div class="buttons-wrap">
             <button 
                 class="search-button"
-                [ngClass]="{'active': activeBtn === 'all'}"
-                (click)="showAll()"
-            >Все</button>
-            <button 
-                class="search-button"
                 [ngClass]="{'active': activeBtn === 'movies'}"
                 (click)="showMovies()"
             >Фільми</button>
@@ -22,6 +17,17 @@
                 [ngClass]="{'active': activeBtn === 'tv'}"
                 (click)="showTvShows()"
             >Серіали</button>
+        </div>
+        <div class="genres-wrap">
+            <h3 class="genres-header" (click)="showGenres = !showGenres">Фільтрація по жанрам <span>(натисніть щоб побачити доступні жанри)</span></h3>
+            <div class="buttons-wrap" *ngIf="showGenres">
+                <button
+                    *ngFor="let genre of genres; let i = index"
+                    class="search-button"
+                    [class.active]="selectedIndex === i"
+                    (click)="getItemsByGenre(genre.id, i)"
+                >{{genre.name}}</button>
+            </div>
         </div>
         <div class="movies">
             <h3 class="movies__header">Підбірка рекомендованих {{ suggest }}.<br/>Можливо, щось сподобається.</h3>
@@ -43,6 +49,29 @@
                     ></app-tv-card>
                 </ng-container>
             </ul>
+        </div>
+        <div class="pagination">
+            <button [disabled]="currentItem === 0" (click)="decrement()">Попередня</button>
+            <div class="pag-wrap" *ngIf="currentItem > 0">
+                <button class="item" (click)="setCurrent(0)">1</button>
+                <div class="dots">. . .</div>
+            </div>
+            <ng-container *ngFor="let page of totalPages; let i = index">
+                <button
+                    [class.active]="i === currentItem"
+                    class="item"
+                    *ngIf="i === currentItem || i === currentItem + 1 || i === currentItem + 2"
+                    (click)="setCurrent(i)"
+                >{{i + 1}}</button>
+            </ng-container>
+            <div class="pag-wrap" *ngIf="currentItem < totalPages.length - 1">
+                <div class="dots">. . .</div>
+                <button class="item" (click)="setCurrent(totalPages.length - 1)">{{totalPages.length}}</button>
+            </div>
+            <button 
+                [disabled]="currentItem === totalPages.length - 1" 
+                (click)="increment()"
+            >Наступна</button>
         </div>
     </div>
 </section>
